@@ -12,43 +12,16 @@ We'll be using [Pytorch-UNet](https://github.com/milesial/Pytorch-UNet) as our m
 <br><br>
 
 ---
-- `conda create -n mars python=3.10.4`
+
+## Quick test run
+
 - `conda activate mars`
 - `git clone https://github.com/milesial/Pytorch-UNet.git`
 - `cd Pytorch-UNet`
-- `python -m pip install -r requirements.txt`
-- `conda install pytorch torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia` Takes a looong while.
-- 
-
-
-## NOTES / DEVLOG of the env:
-
-- `python` `3.11.0` and `3.10.7` dont meet the requirements of some of libriaries.
-- `python 3.10.4` successfuly installed everything, but then an error occured:
-```
-(mars) PS C:\Users\quatr\IT\Code\mars-surface-classification\Pytorch-UNet> python .\predict.py -i ..\..\images\piotrf\DSLR_RAW\DSC_0001.JPG -o out.jpg
-D:\Programs\anaconda3\envs\mars\lib\site-packages\numpy\__init__.py:138: UserWarning: mkl-service package failed to import, therefore Intel(R) MKL initialization ensuring its correct out-of-the box operation under condition when Gnu OpenMP had already been loaded by Python process is not assured. Please install mkl-service package, see http://github.com/IntelPython/mkl-service
-  from . import _distributor_init
-Traceback (most recent call last):
-  File "C:\Users\quatr\IT\Code\mars-surface-classification\Pytorch-UNet\predict.py", line 5, in <module>
-    import numpy as np
-  File "D:\Programs\anaconda3\envs\mars\lib\site-packages\numpy\__init__.py", line 417, in <module>
-    import mkl
-  File "D:\Programs\anaconda3\envs\mars\lib\site-packages\mkl\__init__.py", line 48, in <module> 
-    with RTLD_for_MKL():
-  File "D:\Programs\anaconda3\envs\mars\lib\site-packages\mkl\__init__.py", line 33, in __enter__
-    import ctypes
-  File "D:\Programs\anaconda3\envs\mars\lib\ctypes\__init__.py", line 8, in <module>
-    from _ctypes import Union, Structure, Array
-ImportError: DLL load failed while importing _ctypes: The specified module could not be found.  
-```
-
-Google searches left me with only solution to be copying `libffi-7.dll` to different destinations like root folder of the `env` or `lib`.
-
-I've tried with a version downloaded, and a version copied form `D:\Programs\Python\Python310\DLLs\\libffi-7.dll`.
-
-So Ive tried to run it some on one of my other pytorch envs, and it seems to work.
-The env is on python `3.9.13`
-
+- Sign up to 'kaggle.com'
+- [Download `train_mask.zip` and `train_hq.zip`](https://www.kaggle.com/competitions/carvana-image-masking-challenge/data?select=train_masks.zip)
+- Move images from `train_hq` to `Pytorch-UNet / imgs`
+- Move masks from `train_masks` to `Pytorch-UNet / masks`
+- run `python train.py --amp`
 
 
