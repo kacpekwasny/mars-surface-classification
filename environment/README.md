@@ -15,13 +15,15 @@ We'll be using [Pytorch-UNet](https://github.com/milesial/Pytorch-UNet) as our m
 
 ## Quick test run
 
+Setup the environment by following the above steps.
+
+Then:
 - `conda activate mars`
-- `git clone https://github.com/milesial/Pytorch-UNet.git`
-- `cd Pytorch-UNet`
+- `cd UNet`
 - Sign up to 'kaggle.com'
 - [Download `train_mask.zip` and `train_hq.zip`](https://www.kaggle.com/competitions/carvana-image-masking-challenge/data?select=train_masks.zip)
-- Move images from `train_hq` to `Pytorch-UNet / imgs`
-- Move masks from `train_masks` to `Pytorch-UNet / masks`
+- Move images from `train_hq` to `UNet/imgs`
+- Move masks from `train_masks` to `UNet/masks`
 - run `python train.py --amp`
 
 

@@ -1,3 +1,3 @@
 # mars-surface-classification
 
-[Checkout how to setup the environment](environment/README.md)
+[Setup and test](environment/README.md)
