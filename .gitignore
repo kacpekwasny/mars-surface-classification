@@ -2,5 +2,6 @@ devlog.md
 *.pyc
 convert_mask_file.py
 segmentation_models.pytorch
-
+out
+*checkpoint*
 

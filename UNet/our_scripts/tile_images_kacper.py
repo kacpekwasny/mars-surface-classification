@@ -5,7 +5,7 @@ from glob import glob
 
 import os.path as op
 
-def cut_into_tiles(img: cv2.Mat, side_len: int) -> list[cv2.Mat]:
+def cut_into_tiles(img: cv2.Mat, side_len: int) -> list:
     imgW, imgH = img.shape[:2]
     assert imgW == imgH, "Image has to be a square"
 
