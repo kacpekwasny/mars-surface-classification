@@ -1,4 +1,14 @@
-# How to setup the environment for the model
+
+
+We found that using the docker container was the best, and easiest solution: <br>
+
+ - [CUDA on WSL](https://docs.nvidia.com/cuda/wsl-user-guide/index.html)
+ - [CUDA on docker on Linux](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html)
+
+
+
+--- 
+How to setup the environment for the model
 
 - Install Anaconda: [Anaconda](https://www.anaconda.com)
 - [Install `CUDA` 11.7](https://developer.nvidia.com/cuda-11-7-0-download-archive?target_os=Windows&target_arch=x86_64&target_version=11&target_type=exe_local)
@@ -13,7 +23,7 @@ We'll be using [Pytorch-UNet](https://github.com/milesial/Pytorch-UNet) as our m
 
 ---
 
-## Quick test run
+Quick test run
 
 Setup the environment by following the above steps.
 

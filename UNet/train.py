@@ -26,6 +26,9 @@ dir_checkpoint = Path('./checkpoints/')
 dir_img = Path('./data/imgs3k/')
 dir_mask = Path('./data/masks3k/')
 
+dir_img = Path('./data/imgs3k_tiled_256_8864_1ch/')
+dir_mask = Path('./data/masks3k_tiled_256_8864_1ch/')
+
 
 def train_model(
         model,
