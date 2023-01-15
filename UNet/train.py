@@ -23,6 +23,9 @@ dir_img = Path('./data/imgs/')
 dir_mask = Path('./data/masks/')
 dir_checkpoint = Path('./checkpoints/')
 
+dir_img = Path('./data/imgs3k/')
+dir_mask = Path('./data/masks3k/')
+
 
 def train_model(
         model,
@@ -155,8 +158,8 @@ def train_model(
                                 'epoch': epoch,
                                 **histograms
                             })
-                        except:
-                            pass
+                        except Exception as e:
+                            print(e)
 
         if save_checkpoint:
             Path(dir_checkpoint).mkdir(parents=True, exist_ok=True)
@@ -178,7 +181,7 @@ def get_args():
                         help='Percent of the data that is used as validation (0-100)')
     parser.add_argument('--amp', action='store_true', default=False, help='Use mixed precision')
     parser.add_argument('--bilinear', action='store_true', default=False, help='Use bilinear upsampling')
-    parser.add_argument('--classes', '-c', type=int, default=2, help='Number of classes')
+    parser.add_argument('--classes', '-c', type=int, default=5, help='Number of classes')
 
     return parser.parse_args()
 
@@ -191,9 +194,9 @@ if __name__ == '__main__':
     logging.info(f'Using device {device}')
 
     # Change here to adapt to your data
-    # n_channels=3 for RGB images
+    # n_channels=1 for RGB images
     # n_classes is the number of probabilities you want to get per pixel
-    model = UNet(n_channels=3, n_classes=args.classes, bilinear=args.bilinear)
+    model = UNet(n_channels=1, n_classes=args.classes, bilinear=args.bilinear)
     model = model.to(memory_format=torch.channels_last)
 
     logging.info(f'Network:\n'

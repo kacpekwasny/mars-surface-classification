@@ -82,7 +82,7 @@ if __name__ == '__main__':
     in_files = args.input
     out_files = get_output_filenames(args)
 
-    net = UNet(n_channels=3, n_classes=2, bilinear=args.bilinear)
+    net = UNet(n_channels=1, n_classes=5, bilinear=args.bilinear)
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     logging.info(f'Loading model {args.model}')
@@ -93,6 +93,7 @@ if __name__ == '__main__':
     mask_values = state_dict.pop('mask_values')
     net.load_state_dict(state_dict)
 
+    logging.info(f'mask_values: {mask_values}')
     logging.info('Model loaded!')
 
     for i, filename in enumerate(in_files):
